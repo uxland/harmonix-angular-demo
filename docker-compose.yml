@@ -1,0 +1,18 @@
+---
+
+version: '3.3'
+services:
+  front:
+    image: node:20
+    working_dir: /code
+    ports:
+      - 8080:8080  # Used by 'yarn serve:argos'
+      - 8081:8081  # Used by 'yarn serve:argos' once the default port is used
+      - 4200:4200  # Port angular is running on
+    volumes:
+      - ./:/code:Z
+    environment:
+      - YARN_CACHE_FOLDER=/yarn-cache
+      - VITE_HOST=0.0.0.0
+    init: true
+    command: tail -f /dev/null

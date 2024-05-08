@@ -1,0 +1,46 @@
+{
+  "name": "@fim-sandbox/app",
+  "version": "1.0.0",
+  "description": "Framework Integració modular",
+  "author": "UXLand <dev@uxland.es>",
+  "homepage": "https://github.com/uxland/fim-sandbox/tree/app#readme",
+  "license": "UNLICENSED",
+  "main": "index.ts",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "es",
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uxland/fim-sandbox.git"
+  },
+  "scripts": {
+    "start": "ng serve --host 0.0.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/uxland/fim-sandbox-region-test/issues"
+  },
+  "dependencies": {
+    "@angular/animations": "^17.3.0",
+    "@angular/common": "^17.3.0",
+    "@angular/compiler": "^17.3.0",
+    "@angular/core": "^17.3.0",
+    "@angular/forms": "^17.3.0",
+    "@uxland/fim-core": "^1.0.0",
+    "@uxland/primary-shell": "^1.0.0",
+    "lit": "^3.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.7",
+    "@angular/platform-browser": "^17.3.0",
+    "@angular/platform-browser-dynamic": "^17.3.0"
+  }
+}
