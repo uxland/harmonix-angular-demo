@@ -1,5 +1,7 @@
 import { initializeShell } from "@uxland/primary-shell";
 import { initialize } from "./module";
+import { bootstrapModules, moduleLoader } from "@uxland/fim-core";
+import { modules } from "./modules";
 
 const createAndAppendSandboxApp = () => {
     const app = document.createElement('fim-sandbox-app');
@@ -11,8 +13,8 @@ const createAndAppendSandboxApp = () => {
 const initializeSandboxApp = (sandbox) => {
     try {
         if (sandbox) {
-            // initializeShell(sandbox as HTMLElement);
-            initialize({moduleId:'my-angular-module'});
+            initializeShell(sandbox as HTMLElement);
+            bootstrapModules(modules, moduleLoader);
         }
     }
     catch (error) {
