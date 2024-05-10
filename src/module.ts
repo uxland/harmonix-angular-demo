@@ -1,6 +1,6 @@
 import { createApplication } from '@angular/platform-browser';
 import { shellLitRegionManager } from '@uxland/fim-core';
-import { regions } from '@uxland/primary-shell/src/regions';
+import { regions } from '@uxland/primary-shell';
 import { AppComponent } from './app/app.component';
 import { ApplicationRef, Type } from '@angular/core';
 import { ToolBarActionComponent } from './app/tool-bar-action/tool-bar-action.component';
