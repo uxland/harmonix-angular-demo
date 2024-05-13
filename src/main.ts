@@ -1,6 +1,4 @@
-import { initializeShell } from "@uxland/primary-shell";
-import { initialize } from "./module";
-import { bootstrapModules } from "@uxland/fim-core";
+import { initializeShell,bootstrapModules } from "@uxland/primary-shell";
 import { moduleLoader, modules } from "./modules";
 
 const createAndAppendSandboxApp = () => {
