@@ -21,7 +21,7 @@ export const initialize = (mi: { moduleId: string }) => {
 
     
     
-    (regions.actionsToolbar, `${mi.moduleId}-2`, {
+    shellLitRegionManager.registerViewWithRegion(regions.actionsToolbar, `${mi.moduleId}-2`, {
       factory: viewAngularFactory(app, ToolBarActionComponent),
       sortHint: '001',
     });
