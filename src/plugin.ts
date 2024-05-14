@@ -11,17 +11,17 @@ const viewAngularFactory = <C>(app: ApplicationRef, component: Type<C>): () => P
   return Promise.resolve(host);
 }
 
-export const initialize = (mi: { moduleId: string }) => {
-  console.log('Module loaded', mi);
+export const initialize = (mi: { pluginId: string }) => {
+  console.log('Plugin loaded', mi);
 
   createApplication().then((app) => {
-    shellLitRegionManager.registerViewWithRegion(regions.main, `${mi.moduleId}-1`, {
+    shellLitRegionManager.registerViewWithRegion(regions.main, `${mi.pluginId}-1`, {
       factory: viewAngularFactory(app, AppComponent),
     });
 
     
     
-    shellLitRegionManager.registerViewWithRegion(regions.actionsToolbar, `${mi.moduleId}-2`, {
+    shellLitRegionManager.registerViewWithRegion(regions.actionsToolbar, `${mi.pluginId}-2`, {
       factory: viewAngularFactory(app, ToolBarActionComponent),
       sortHint: '001',
     });
