@@ -1,6 +1,5 @@
 import { createApplication } from '@angular/platform-browser';
-import { shellLitRegionManager } from '@uxland/fim-core';
-import { regions } from '@uxland/primary-shell';
+import { PrimariaApi, regions } from '@uxland/primary-shell';
 import { AppComponent } from './app/app.component';
 import { ApplicationRef, Type } from '@angular/core';
 import { ToolBarActionComponent } from './app/tool-bar-action/tool-bar-action.component';
@@ -11,24 +10,26 @@ const viewAngularFactory = <C>(app: ApplicationRef, component: Type<C>): () => P
   return Promise.resolve(host);
 }
 
-export const initialize = (mi: { pluginId: string }) => {
-  console.log('Plugin loaded', mi);
+export const initialize = (api: PrimariaApi) => {
+  console.log('Plugin loaded', api.pluginInfo.pluginId);
 
   createApplication().then((app) => {
-    shellLitRegionManager.registerViewWithRegion(regions.main, `${mi.pluginId}-1`, {
+    api.regionManager.registerView(regions.main, {
       factory: viewAngularFactory(app, AppComponent),
-    });
+    } as any);
 
     
     
-    shellLitRegionManager.registerViewWithRegion(regions.actionsToolbar, `${mi.pluginId}-2`, {
+    api.regionManager.registerView(regions.actionsToolbar, {
       factory: viewAngularFactory(app, ToolBarActionComponent),
-      sortHint: '001',
-    });
+      options: {
+        sortHint: '001'
+      }
+    } as any);
   });
 
 };
 
-export const dispose = (mi: { moduleId: string }) => {
-  shellLitRegionManager.getRegion(regions.main).removeView(`${mi.moduleId}-1`);
+export const dispose = (api: PrimariaApi) => {
+  api.regionManager.removeView(regions.main,`${api.pluginInfo.pluginId}-1`);
 }

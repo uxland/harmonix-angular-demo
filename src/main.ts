@@ -1,5 +1,5 @@
-import { initializeShell,bootstrapPlugins } from "@uxland/primary-shell";
-import { pluginLoader, plugins } from "./plugins";
+import { bootstrapPlugins, initializeShell } from "@uxland/primary-shell";
+import { plugins } from "./plugins";
 
 const createAndAppendSandboxApp = () => {
     const app = document.createElement('fim-sandbox-app');
@@ -12,7 +12,7 @@ const initializeSandboxApp = (sandbox) => {
     try {
         if (sandbox) {
             initializeShell(sandbox as HTMLElement);
-            bootstrapPlugins(plugins, pluginLoader);
+            bootstrapPlugins(plugins);
         }
     }
     catch (error) {
