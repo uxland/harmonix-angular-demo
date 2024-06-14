@@ -8,4 +8,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-module';
+  counter = 0;
+
+  incrementCounter() {
+    this.counter++;
+  }
 }

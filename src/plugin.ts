@@ -1,12 +1,12 @@
 import { createApplication } from '@angular/platform-browser';
 import { PrimariaApi, regions } from '@uxland/primary-shell';
 import { AppComponent } from './app/app.component';
-import { ApplicationRef, Type } from '@angular/core';
+import { ApplicationRef, NgZone, Type } from '@angular/core';
 import { ToolBarActionComponent } from './app/tool-bar-action/tool-bar-action.component';
 
 const viewAngularFactory = <C>(app: ApplicationRef, component: Type<C>): () => Promise<HTMLElement> => () => {
   const host = document.createElement('host-component');
-  app.bootstrap(component, host);
+  app.injector.get(NgZone).run(() => app.bootstrap(component, host));
   return Promise.resolve(host);
 }
 
