@@ -33,7 +33,6 @@
     "@angular/core": "^17.3.0",
     "@angular/forms": "^17.3.0",
     "@uxland/primary-shell": "^1.0.0",
-    "@uxland/primary-ui-components": "^1.0.3",
     "lit": "^3.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
